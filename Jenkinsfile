@@ -19,7 +19,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t spring:latest .'
+                    sh 'docker build -t youssefrm/springim:latest .'
                 }
             }
         }
