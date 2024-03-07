@@ -22,6 +22,12 @@ pipeline {
                     sh 'docker build -t youssefrm/springim:latest .'
                 }
             }
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    sh 'docker push youssefrm/springim:latest .'
+                }
+            }
         }
     }
 }
