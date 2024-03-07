@@ -23,5 +23,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Push Docker Image to Docker Hub') {
+            environment {
+                DOCKER_CREDENTIALS = credentials('c6ea3088-f7ad-4b7a-a9f6-3614f2de2f25')
+            }
+            steps {
+                sh 'docker login -u $DOCKER_CREDENTIALS_USR -p $DOCKER_CREDENTIALS_PSW'
+                sh 'docker push youssefrm/springim:latest'
+            }
+        }
     }
 }
