@@ -11,7 +11,7 @@ pipeline {
         stage('SAST') {
             steps {
                 script {
-                    withSonarQubeEnv(credentialsId: '6cd23c11-5de1-4a21-8598-d7b608fdc177') {
+                    withSonarQubeEnv(credentialsId: 'd54a9dca-6055-46c1-b88f-f8d75781979d') {
                         sh 'mvn sonar:sonar'
                     }
                 }
