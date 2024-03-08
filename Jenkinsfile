@@ -12,7 +12,6 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv(credentialsId: 'd54a9dca-6055-46c1-b88f-f8d75781979d') {
-                        sh 'docker start sonarqube'
                         sh 'mvn sonar:sonar'
                         sh 'cat target/sonar/report.txt'
                     }
