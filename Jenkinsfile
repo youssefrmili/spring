@@ -8,8 +8,7 @@ pipeline {
             }
         }
      stage('SAST') {
-            environment {
-        SONAR_TOKEN = credentials('6cd23c11-5de1-4a21-8598-d7b608fdc177')
+       withSonarQubeEnv(credentialsId: '6cd23c11-5de1-4a21-8598-d7b608fdc177')
     }
             steps {
                 script {
