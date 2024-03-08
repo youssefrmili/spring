@@ -7,7 +7,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/youssefrmili/spring.git'
             }
         }
- stage('SAST') {
+     stage('SAST') {
             steps {
                 script {
                     sh 'mvn sonar:sonar'
