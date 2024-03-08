@@ -7,12 +7,13 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/youssefrmili/spring.git'
             }
         }
-     stage('SAST') {
-       withSonarQubeEnv(credentialsId: '6cd23c11-5de1-4a21-8598-d7b608fdc177')
-    }
+
+        stage('SAST') {
             steps {
                 script {
-                    sh 'mvn sonar:sonar'
+                    withSonarQubeEnv(credentialsId: '6cd23c11-5de1-4a21-8598-d7b608fdc177') {
+                        sh 'mvn sonar:sonar'
+                    }
                 }
             }
         }
