@@ -19,6 +19,14 @@ pipeline {
             }
         }
         
+        stage('SQuality Gate') {
+            steps {
+                timeout(time: 1, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+        
         stage('Build and Test') {
             steps {
                 script {
